@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./GeneralSectionStyle.css";
 
 function CVGeneralSection({ label, placeholder }) {
   const [text, setText] = useState("");
@@ -9,17 +10,19 @@ function CVGeneralSection({ label, placeholder }) {
   }
 
   return (
-    <form onSubmit={handleChange}>
-      <label>
-        {label}
-        <input
-          type="text"
-          placeholder={placeholder}
-          value={text}
-          onChange={handleChange}
-        />
-      </label>
-    </form>
+    <div>
+      <form onSubmit={handleChange}>
+        <label>
+          {label}
+          <input
+            type="text"
+            placeholder={placeholder}
+            value={text}
+            onChange={handleChange}
+          />
+        </label>
+      </form>
+    </div>
   );
 }
 
@@ -37,7 +40,9 @@ export function CVGeneralComponentSectionComponent() {
         label="City and province"
         placeholder="Enter your city and province"
       />
-      <button type="submit">Send</button>
+      <div>
+        <button type="submit"> ✓ Send</button>
+      </div>
     </div>
   );
 }
