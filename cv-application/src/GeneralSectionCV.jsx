@@ -56,6 +56,8 @@ function GeneralForm({
   );
 }
 
+let nextId = 0;
+
 export function GeneralSection() {
   const [formData, setFormData] = useState([
     {
@@ -109,9 +111,7 @@ export function GeneralSection() {
               cityAndProvinceInputName="city-and-province"
               cityAndProvinceInputPlaceholder="City, Province"
             ></GeneralForm>
-            <div className>
-              <button type="submit">Send</button>
-            </div>
+            <button type="submit">Send</button>
           </form>
         </div>
       ))}

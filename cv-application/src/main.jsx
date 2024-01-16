@@ -1,11 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { CVGeneralComponentSectionComponent } from "./GeneralSectionCV";
-import { CVEducationSectionComponent } from "./EducationSectionCV";
+import { GeneralSection } from "./GeneralSectionCV";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <CVGeneralComponentSectionComponent />
-    <CVEducationSectionComponent />
+    <GeneralSection />
   </React.StrictMode>,
 );

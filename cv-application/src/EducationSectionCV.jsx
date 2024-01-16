@@ -1,49 +1,81 @@
 import { useState } from "react";
 
-function CVEducationSection({ label, placeholder }) {
-  const [text, setText] = useState("");
-
-  function handleChange(e) {
-    e.preventDefault();
-    setText(e.target.value);
-  }
-
+function EducationalForm({
+  degreeLabelFor,
+  schoolLabelFor,
+  cityLabelFor,
+  countryLabelFor,
+  startDateLabelFor,
+  endDateDateLabelFor,
+  degreeLabel,
+  schoolLabel,
+  cityLabel,
+  countryLabel,
+  startDateLabel,
+  endDateLabel,
+  degreeInputName,
+  schoolInputName,
+  cityInputName,
+  countryInputName,
+  startDateInputName,
+  endDateInputName,
+  degreeInputPlaceholder,
+  schoolInputPlaceholder,
+  cityInputPlaceholder,
+  countryLInputPlaceholder,
+  startDateInputPlaceholder,
+  endDateInputPlaceholder,
+}) {
   return (
-    <div>
-      <form action="#" onSubmit={handleChange}>
-        <label>
-          {label}
-          <input
-            type="text"
-            placeholder={placeholder}
-            onChange={handleChange}
-            value={text}
-          />
-        </label>
-      </form>
-    </div>
-  );
-}
-
-export function CVEducationSectionComponent() {
-  return (
-    <div>
-      <h2>
-        Education Experience <span>∨</span>
-      </h2>
-      <CVEducationSection
-        label="Degree"
-        placeholder="Enter Degree / Field of Study"
-      />
-      <CVEducationSection
-        label="School"
-        placeholder="Enter school / university"
-      />
-      <CVEducationSection label="City" placeholder="Enter City" />
-      <CVEducationSection label="Country" placeholder="Enter country" />
-      <CVEducationSection label="Start Date" placeholder="Enter start date" />
-      <CVEducationSection label="End date" placeholder="Enter end date" />
-      <button onClick={CVEducationSectionComponent}> ✓ Send</button>
-    </div>
+    <>
+      <label htmlFor={degreeLabelFor}>
+        {degreeLabel}
+        <input
+          type="text"
+          name={degreeInputName}
+          placeholder={degreeInputPlaceholder}
+        />
+      </label>
+      <label htmlFor={schoolLabelFor}>
+        {schoolLabel}
+        <input
+          type="text"
+          name={schoolInputName}
+          placeholder={schoolInputPlaceholder}
+        />
+      </label>
+      <label htmlFor={cityLabelFor}>
+        {cityLabel}
+        <input
+          type="text"
+          name={cityInputName}
+          placeholder={cityInputPlaceholder}
+        />
+      </label>
+      <label htmlFor={countryLabelFor}>
+        {countryLabel}
+        <input
+          type="text"
+          name={countryInputName}
+          placeholder={countryLInputPlaceholder}
+        />
+      </label>
+      <label htmlFor={startDateLabelFor}>
+        {startDateLabel}
+        <input
+          type="text"
+          name={startDateInputName}
+          placeholder={startDateInputPlaceholder}
+        />
+      </label>
+      <label htmlFor={endDateDateLabelFor}>
+        {endDateLabel}
+        <input
+          type="text"
+          name={endDateInputName}
+          placeholder={endDateInputPlaceholder}
+        />
+      </label>
+    </>
   );
 }
