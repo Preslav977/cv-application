@@ -56,6 +56,19 @@ function GeneralForm({
   );
 }
 
+function LivePreview({ fullName, email, phoneNumber, cityAndProvince }) {
+  return (
+    <div>
+      <h2>{fullName}</h2>
+      <div>
+        <p>{email}</p>
+        <p>{phoneNumber}</p>
+        <p>{cityAndProvince}</p>
+      </div>
+    </div>
+  );
+}
+
 let nextId = 0;
 
 export function GeneralSection() {
@@ -115,6 +128,12 @@ export function GeneralSection() {
           </form>
         </div>
       ))}
+      <LivePreview
+        fullName={formData[0].fullName}
+        email={formData[0].email}
+        phoneNumber={formData[0].phoneNumber}
+        cityAndProvince={formData[0].cityAndProvince}
+      ></LivePreview>
     </div>
   );
 }
