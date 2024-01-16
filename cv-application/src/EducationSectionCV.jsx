@@ -79,3 +79,81 @@ function EducationalForm({
     </>
   );
 }
+
+let nextId = 0;
+
+export function EducationSection() {
+  const [formData, setFormData] = useState([
+    {
+      degree: "",
+      school: "",
+      city: "",
+      country: "",
+      startDate: "",
+      endDate: "",
+      id: nextId,
+    },
+  ]);
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    const formDataObject = new FormData(e.target);
+    const degreeData = formDataObject.get("degree");
+    const schoolData = formDataObject.get("school");
+    const cityData = formDataObject.get("city");
+    const countryData = formDataObject.get("country");
+    const startDateData = formDataObject.get("start-date");
+    const endDateData = formDataObject.get("end-date");
+    const newObjectSubmittedData = {
+      ...formData,
+      degree: degreeData,
+      school: schoolData,
+      city: cityData,
+      country: countryData,
+      startDate: startDateData,
+      endDate: endDateData,
+      id: nextId++,
+    };
+
+    setFormData([newObjectSubmittedData]);
+  }
+
+  return (
+    <div>
+      <h2>Education Experience</h2>
+      {formData.map((formObj) => (
+        <div key={formObj.id}>
+          <form onSubmit={handleSubmit}>
+            <EducationalForm
+              degreeLabelFor="degree"
+              degreeLabel="Degree"
+              degreeInputName="degree"
+              degreeInputPlaceholder="Degree"
+              schoolLabelFor="school"
+              schoolLabel="School"
+              schoolInputName="school"
+              schoolInputPlaceholder="School"
+              cityLabelFor="city"
+              cityLabel="City"
+              cityInputName="city"
+              cityInputPlaceholder="City"
+              countryLabelFor="country"
+              countryLabel="Country"
+              countryInputName="country"
+              countryLInputPlaceholder="Country"
+              startDateLabelFor="start-date"
+              startDateLabel="Start Date"
+              startDateInputName="start-date"
+              startDateInputPlaceholder="Start Date"
+              endDateDateLabelFor="end-date"
+              endDateLabel="End Date"
+              endDateInputName="end-date"
+              endDateInputPlaceholder="End Date"
+            ></EducationalForm>
+            <button type="submit">Send</button>
+          </form>
+        </div>
+      ))}
+    </div>
+  );
+}
