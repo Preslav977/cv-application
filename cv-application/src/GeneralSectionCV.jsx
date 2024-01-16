@@ -55,3 +55,66 @@ function GeneralForm({
     </div>
   );
 }
+
+export function GeneralSection() {
+  const [formData, setFormData] = useState([
+    {
+      fullName: "",
+      email: "",
+      phoneNumber: "",
+      cityAndProvince: "",
+      id: nextId,
+    },
+  ]);
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    const FormDataObject = new FormData(e.target);
+    const fullNameData = FormDataObject.get("full-name");
+    const emailData = FormDataObject.get("email");
+    const phoneNumberData = FormDataObject.get("phone-number");
+    const cityAndProvinceData = FormDataObject.get("city-and-province");
+    const newObjectSubmittedData = {
+      ...formData,
+      fullName: fullNameData,
+      email: emailData,
+      phoneNumber: phoneNumberData,
+      cityAndProvince: cityAndProvinceData,
+      id: nextId++,
+    };
+    setFormData([newObjectSubmittedData]);
+  }
+
+  return (
+    <div>
+      <h2>General Information</h2>
+      {formData.map((formObj) => (
+        <div key={formObj.id}>
+          <form action="#" onSubmit={handleSubmit}>
+            <GeneralForm
+              fullNameLabelFor="fullName"
+              fullNameLabel="Full Name"
+              fullNameInputName="full-name"
+              fullNameInputPlaceholder="Full Name"
+              emailLabelForLabelFor="email"
+              emailLabel="Email"
+              emailInputName="email"
+              emailInputPlaceholder="Email"
+              phoneNumberLabelFor="phone-number"
+              phoneNumberLabel="Phone Number"
+              phoneNumberInputName="phone-number"
+              phoneNumberInputPlaceholder="Phone Number"
+              cityAndProvinceLabelFor="city-and-province"
+              cityAndProvinceLabel="City and Province"
+              cityAndProvinceInputName="city-and-province"
+              cityAndProvinceInputPlaceholder="City, Province"
+            ></GeneralForm>
+            <div className>
+              <button type="submit">Send</button>
+            </div>
+          </form>
+        </div>
+      ))}
+    </div>
+  );
+}
