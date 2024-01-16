@@ -80,6 +80,21 @@ function EducationalForm({
   );
 }
 
+function LivePreview({ degree, school, city, country, startDate, endDate }) {
+  return (
+    <div>
+      <h2>{degree}</h2>
+      <div>
+        <p>{school}</p>
+        <p>{city}</p>
+        <p>{country}</p>
+        <p>{startDate}</p>
+        <p>{endDate}</p>
+      </div>
+    </div>
+  );
+}
+
 let nextId = 0;
 
 export function EducationSection() {
@@ -154,6 +169,15 @@ export function EducationSection() {
           </form>
         </div>
       ))}
+      <LivePreview
+        degree={formData[0].degree}
+        school={formData[0].school}
+        city={formData[0].city}
+        country={formData[0].country}
+        startDate={formData[0].startDate}
+        endDate={formData[0].endDate}
+      ></LivePreview>
+      ;
     </div>
   );
 }
