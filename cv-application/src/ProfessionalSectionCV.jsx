@@ -70,6 +70,26 @@ function ExperienceForm({
   );
 }
 
+function LivePreview({
+  jobTitle,
+  company,
+  startDate,
+  endDate,
+  jobDescription,
+}) {
+  return (
+    <div>
+      <h2>{jobTitle}</h2>
+      <div>
+        <p>{company}</p>
+        <p>{startDate}</p>
+        <p>{endDate}</p>
+        <p>{jobDescription}</p>
+      </div>
+    </div>
+  );
+}
+
 let nextId = 0;
 
 export function ProfessionalSection() {
@@ -136,6 +156,14 @@ export function ProfessionalSection() {
           </form>
         </div>
       ))}
+      <LivePreview
+        jobTitle={formData[0].jobTitle}
+        company={formData[0].company}
+        startDate={formData[0].startDate}
+        endDate={formData[0].endDate}
+        jobDescription={formData[0].jobDescription}
+      ></LivePreview>
+      ;
     </div>
   );
 }
