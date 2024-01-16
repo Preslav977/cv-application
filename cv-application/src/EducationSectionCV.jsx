@@ -28,10 +28,12 @@ function CVEducationSection({ label, placeholder }) {
 export function CVEducationSectionComponent() {
   return (
     <div>
-      <h2>Education Experience</h2>
+      <h2>
+        Education Experience <span>∨</span>
+      </h2>
       <CVEducationSection
         label="Degree"
-        placeholder="Enter Degree / Filed of Study"
+        placeholder="Enter Degree / Field of Study"
       />
       <CVEducationSection
         label="School"
@@ -41,7 +43,7 @@ export function CVEducationSectionComponent() {
       <CVEducationSection label="Country" placeholder="Enter country" />
       <CVEducationSection label="Start Date" placeholder="Enter start date" />
       <CVEducationSection label="End date" placeholder="Enter end date" />
-      <button type="submit"> ✓ Send</button>
+      <button onClick={CVEducationSectionComponent}> ✓ Send</button>
     </div>
   );
 }

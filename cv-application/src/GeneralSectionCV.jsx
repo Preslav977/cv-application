@@ -1,48 +1,57 @@
 import { useState } from "react";
-import "./GeneralSectionStyle.css";
 
-function CVGeneralSection({ label, placeholder }) {
-  const [text, setText] = useState("");
-
-  function handleChange(e) {
-    e.preventDefault();
-    setText(e.target.value);
-  }
-
+function GeneralForm({
+  fullNameLabelFor,
+  emailLabelFor,
+  phoneNumberLabelFor,
+  cityAndProvinceLabelFor,
+  fullNameLabel,
+  emailLabel,
+  phoneNumberLabel,
+  cityAndProvinceLabel,
+  fullNameInputName,
+  emailInputName,
+  phoneNumberInputName,
+  cityAndProvinceInputName,
+  fullNameInputPlaceholder,
+  emailInputPlaceholder,
+  phoneNumberInputPlaceholder,
+  cityAndProvinceInputPlaceholder,
+}) {
   return (
     <div>
-      <form onSubmit={handleChange}>
-        <label>
-          {label}
-          <input
-            type="text"
-            placeholder={placeholder}
-            value={text}
-            onChange={handleChange}
-          />
-        </label>
-      </form>
-    </div>
-  );
-}
-
-export function CVGeneralComponentSectionComponent() {
-  return (
-    <div>
-      <h2>General Information</h2>
-      <CVGeneralSection label="Full Name" placeholder="Enter your full name" />
-      <CVGeneralSection label="Email" placeholder="Enter your email" />
-      <CVGeneralSection
-        label="Phone Number"
-        placeholder="Enter your phone number"
-      />
-      <CVGeneralSection
-        label="City and province"
-        placeholder="Enter your city and province"
-      />
-      <div>
-        <button type="submit"> ✓ Send</button>
-      </div>
+      <label htmlFor={fullNameLabelFor}>
+        {fullNameLabel}
+        <input
+          type="text"
+          name={fullNameInputName}
+          placeholder={fullNameInputPlaceholder}
+        />
+      </label>
+      <label htmlFor={emailLabelFor}>
+        {emailLabel}
+        <input
+          type="text"
+          name={emailInputName}
+          placeholder={emailInputPlaceholder}
+        />
+      </label>
+      <label htmlFor={phoneNumberLabelFor}>
+        {phoneNumberLabel}
+        <input
+          type="text"
+          name={phoneNumberInputName}
+          placeholder={phoneNumberInputPlaceholder}
+        />
+      </label>
+      <label htmlFor={cityAndProvinceLabelFor}>
+        {cityAndProvinceLabel}
+        <input
+          type="text"
+          name={cityAndProvinceInputName}
+          placeholder={cityAndProvinceInputPlaceholder}
+        />
+      </label>
     </div>
   );
 }
