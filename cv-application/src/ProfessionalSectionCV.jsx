@@ -59,7 +59,6 @@ function ExperienceForm({
       <label htmlFor={descriptionLabelFor}>
         {descriptionLabel}
         <textarea
-          className={styles.textAreaContainer}
           type="text"
           name={descriptionInputName}
           placeholder={descriptionInputPlaceholder}
@@ -68,5 +67,75 @@ function ExperienceForm({
         ></textarea>
       </label>
     </>
+  );
+}
+
+let nextId = 0;
+
+export function ProfessionalSection() {
+  const [formData, setFormData] = useState([
+    {
+      jobTitle: "",
+      company: "",
+      startDate: "",
+      endDate: "",
+      jobDescription: "",
+      id: nextId,
+    },
+  ]);
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    const formDataObject = new FormData(e.target);
+    const jobTitleData = formDataObject.get("job-title");
+    const companyData = formDataObject.get("company");
+    const startDateData = formDataObject.get("start-date");
+    const endDateData = formDataObject.get("end-date");
+    const jobDescriptionData = formDataObject.get("job-description");
+    const newFormProfessionalObject = {
+      ...formData,
+      jobTitle: jobTitleData,
+      company: companyData,
+      startDate: startDateData,
+      endDate: endDateData,
+      jobDescription: jobDescriptionData,
+      id: nextId++,
+    };
+    setFormData([newFormProfessionalObject]);
+  }
+
+  return (
+    <div>
+      <h2>Professional Experience</h2>
+      {formData.map((formObj) => (
+        <div key={formObj.id}>
+          <form onSubmit={handleSubmit}>
+            <ExperienceForm
+              jobTitleLabelFor="job-title"
+              jobtTitleLabel="Job Title"
+              jobTitleInputName="job-title"
+              jobTitleInputPlaceholder="Job Title"
+              companyLabelFor="company"
+              companyLabel="Company"
+              companyInputName="company"
+              companyInputPlaceholder="Company"
+              startDateLabelFor="start-date"
+              startDateLabel="Start Date"
+              startDateInputName="start-date"
+              startDateInputPlaceholder="Start Date"
+              endDateLabelFor="end-date"
+              endDateLabel="End Date"
+              endDateInputName="end-date"
+              endDateInputPlaceholder="End Date"
+              descriptionLabelFor="job-description"
+              descriptionLabel="Description"
+              descriptionInputName="job-description"
+              descriptionInputPlaceholder="Main Tasks"
+            ></ExperienceForm>
+            <button type="submit">Send</button>
+          </form>
+        </div>
+      ))}
+    </div>
   );
 }
