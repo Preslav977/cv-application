@@ -153,6 +153,7 @@ export function ProfessionalSection() {
               descriptionInputPlaceholder="Main Tasks"
             ></ExperienceForm>
             <button type="submit">Send</button>
+            <button>Edit</button>
           </form>
         </div>
       ))}
@@ -163,7 +164,6 @@ export function ProfessionalSection() {
         endDate={formData[0].endDate}
         jobDescription={formData[0].jobDescription}
       ></LivePreview>
-      ;
     </div>
   );
 }

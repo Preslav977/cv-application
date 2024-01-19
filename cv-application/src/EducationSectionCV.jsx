@@ -177,7 +177,6 @@ export function EducationSection() {
         startDate={formData[0].startDate}
         endDate={formData[0].endDate}
       ></LivePreview>
-      ;
     </div>
   );
 }
